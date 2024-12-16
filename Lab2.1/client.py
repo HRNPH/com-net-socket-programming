@@ -30,26 +30,30 @@ def main():
         # Create a socket object
         # =============================================
 
+
         # =============================================
 
         # TODO
         # Connect to the server
         # =============================================
         
+        
         # =============================================
         print(f"[INFO] Connected to server at {server_host}:{server_port}")
 
         # TODO
-        # After the connection has been established, send the information to the server
+        # After the connection has been established, send the information in json format to the server
         # =============================================
+
 
         # =============================================
         print(f"[INFO] Sent message: {message}")
 
         # TODO
-        # Receive response from the server
-        # =============================================
+        # Receive response from the server in json format {"TOKEN": <token>}
         # Use 1024 bytes as the buffer size
+        # =============================================
+        
         
         # =============================================
         print(f"[INFO] Received response: {response.decode('utf-8')}")

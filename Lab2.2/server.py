@@ -41,7 +41,7 @@ def main():
                         print(f"[INFO] Connected to: {client_address[0]}:{client_address[1]}")
                         
                         # TODO
-                        # Receive data from the socket
+                        # Receive data from the socket in json format {"TOKEN": <token>}
                         # =============================================
                         
                         
