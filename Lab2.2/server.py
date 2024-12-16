@@ -1,4 +1,5 @@
 import socket, json
+from pyngrok import ngrok
 
 def main():
     host = ""
@@ -21,6 +22,10 @@ def main():
             # =============================================
             s.settimeout(1.0)
             print(f"[INFO] Server started, listening on port {port}")
+            
+            # Expose the server using ngrok
+            public_url = ngrok.connect(port, "tcp")
+            print(f"[INFO] Server is accessible via public URL: {public_url}")
             
             while is_running:
                 try:
