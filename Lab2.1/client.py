@@ -4,7 +4,7 @@ from pathlib import Path
 sys.path.append(str(Path(__file__).parent.parent))
 
 # Import necessary libraries
-import mac
+import get_info
 import json
 import socket
 
@@ -20,10 +20,8 @@ def main():
     server_port = int(server_port)
     
     # Payload
-    message = {
-        "ID": ID,
-        "MAC": mac.extract()
-    }
+    message = get_info.extract()
+    message["ID"] = ID
 
     try:
         # TODO
