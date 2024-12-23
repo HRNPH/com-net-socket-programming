@@ -19,7 +19,17 @@ def main():
     server_host, server_port, ID = sys.argv[1:]
     server_port = int(server_port)
     
-    # Payload
+    # message
+    # {
+    #     "ID": <id>
+    #     "Hostname": <hostname>,
+    #     "User": <current_user>,
+    #     "OS": <os_system>,
+    #     "OS version": <os_version>,
+    #     "Mac": <mac>,
+    #     "Local IP": <local_ip>,
+    #     "Public IP": <public_ip>,
+    # }
     message = get_info.extract()
     message["ID"] = ID
 
