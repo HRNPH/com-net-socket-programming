@@ -34,6 +34,7 @@ def main():
     message["ID"] = ID
 
     try:
+        
         # TODO
         # Create a socket object
         # =============================================

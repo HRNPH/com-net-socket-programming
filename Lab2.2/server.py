@@ -14,6 +14,7 @@ def main():
     try:
         # Create a TCP socket
         with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
+            
             # TODO
             # Complete the following block
             # =============================================

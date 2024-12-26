@@ -1,9 +1,9 @@
 import os
-import platform
+import getmac
 import socket
 import getpass
 import requests
-import netifaces
+import platform
 
 def extract():
     # Get Hostname
@@ -26,10 +26,7 @@ def extract():
         public_ip = ""
         
     # Get MAC Address
-    net_if = netifaces.gateways()['default']
-    net_if_name = list(net_if.values())[0][1]
-    addrs = netifaces.ifaddresses(net_if_name)
-    mac = addrs[netifaces.AF_LINK][0]['addr']
+    mac = getmac.get_mac_address()
 
     info = {
         "Hostname": hostname,
@@ -42,3 +39,7 @@ def extract():
     }
     
     return info
+
+if __name__ == '__main__':
+    info = extract()
+    print(info)
