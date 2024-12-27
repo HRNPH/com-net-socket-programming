@@ -39,7 +39,3 @@ def extract():
     }
     
     return info
-
-if __name__ == '__main__':
-    info = extract()
-    print(info)
