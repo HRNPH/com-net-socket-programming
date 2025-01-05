@@ -17,13 +17,18 @@ def extract():
     os_version = platform.version()  # OS version
 
     # Get Local IP Address
-    local_ip = socket.gethostbyname(socket.gethostname())
+    try:
+        with socket.socket(socket.AF_INET, socket.SOCK_DGRAM) as s:
+                s.connect(("8.8.8.8", 80))  # Connect to a public DNS server
+                local_ip = s.getsockname()[0]
+    except Exception as e:
+        local_ip = "Unavailable"
 
     # Get Public IP Address
     try:
         public_ip = requests.get("https://api.ipify.org").text
     except Exception as e:
-        public_ip = ""
+        public_ip = "Unavailable"
         
     # Get MAC Address
     mac = getmac.get_mac_address()
@@ -39,3 +44,6 @@ def extract():
     }
     
     return info
+
+if __name__ == '__main__':
+    print(extract())

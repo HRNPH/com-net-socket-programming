@@ -9,17 +9,27 @@ import json
 import socket
 
 def main():
+    # TODO
+    # Define the server host and port to connect to
+    # Define your student-id
     
-    # Receive arguments from the command line
-    if len(sys.argv) != 4:
-        print(f"[ERROR] In valid number of arguments provided.")
-        print(f"Usage: python client.py <server-ip> <server-port> <your-id>")
-        return
+    # The function `extract()` from file `get_info.py` fetch computer's information and output in this format:
+    # {
+    #     "Hostname": <hostname>,
+    #     "User": <current_user>,
+    #     "OS": <os_system>,
+    #     "OS version": <os_version>,
+    #     "Mac": <mac>,
+    #     "Local IP": <local_ip>,
+    #     "Public IP": <public_ip>,
+    # }
+    # Keep OS info in message variable
+    message = get_info.extract()
     
-    server_host, server_port, ID = sys.argv[1:]
-    server_port = int(server_port)
+    # Add your student-ID to the message
+    message["ID"] = ID
     
-    # message
+    # Now, the message should look like this:
     # {
     #     "ID": <id>
     #     "Hostname": <hostname>,
@@ -30,11 +40,8 @@ def main():
     #     "Local IP": <local_ip>,
     #     "Public IP": <public_ip>,
     # }
-    message = get_info.extract()
-    message["ID"] = ID
 
     try:
-        
         # TODO
         # Create a socket object
         # =============================================
@@ -51,7 +58,9 @@ def main():
         print(f"[INFO] Connected to server at {server_host}:{server_port}")
 
         # TODO
-        # After the connection has been established, send the information in json format to the server
+        # After the connection has been established, send the information to the server
+        # Use json.dumps() to convert the message to a string
+        # Ensure the message is encoded in UTF-8 format before sending
         # =============================================
 
 
@@ -61,6 +70,7 @@ def main():
         # TODO
         # Receive response from the server in json format {"TOKEN": <token>}
         # Use 1024 bytes as the buffer size
+        # Ensure the response is decoded from UTF-8 format
         # =============================================
         
         
