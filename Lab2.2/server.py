@@ -4,7 +4,7 @@ from pyngrok import ngrok
 def main():
     host = ""
     # TODO
-    # Specify your desired port
+    # Specify your local server port
     # =============================================
     
     
@@ -16,7 +16,7 @@ def main():
         with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
             
             # TODO
-            # Complete the following block
+            # Bind the socket to the host and port
             # =============================================
             
             
@@ -31,7 +31,7 @@ def main():
             while is_running:
                 try:
                     # TODO
-                    # Got a connection from a client
+                    # Accept a connection from a client
                     # =============================================
                     
                     
@@ -42,7 +42,9 @@ def main():
                         print(f"[INFO] Connected to: {client_address[0]}:{client_address[1]}")
                         
                         # TODO
-                        # Receive a message from the socket, "Hello World!"
+                        # Receive a text message from the socket using a buffer size of 1024 bytes.
+                        # The received message from the client should be "Hello World!"
+                        # Ensure the response is decoded from UTF-8 format
                         # =============================================
                         
                         
